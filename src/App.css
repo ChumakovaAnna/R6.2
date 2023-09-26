@@ -1,3 +1,18 @@
 .App {
-  text-align: center;
+  padding: 5px;
+}
+
+.form {
+  
+}
+
+.textarea {
+  width: 15em;
+  height: 7em;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.button_save {
+  display: block;
 }
