@@ -1,13 +1,10 @@
 import './App.css';
-import Form from './components/Form';
-import Note from './components/Note';
-import {ListNotes} from './components/ListNotes';
+import CRUD from './components/CRUD'
 
 function App() {
   return (
     <div className="App">
-      <ListNotes></ListNotes>
-      <Form></Form>
+      <CRUD></CRUD>
     </div>
   );
 }

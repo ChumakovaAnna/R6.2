@@ -1,45 +1,30 @@
 import React from "react";
 import { useState } from "react";
-import {postNote} from '../API'
 
-export default function Form() {
-  const [form, setForm] = useState({
-    id: 0,
-    content: ''
-  });
-
-  const fetchNotes = () => {
-    fetch(process.env.REACT_APP_SERVER_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8'
-      },
-      body: JSON.stringify(form)
-    })
-    .then(res => res.json())
-    .then(obj => console.log(obj))
-    .catch(err => console.log(err))
-  }
+export default function Form({getNotes, postNote}) {
+  const [form, setForm] = useState();
 
   const handleChange = ({target}) => {
     console.log(target.value);
-    // setForm(form.content = 0);
-    // console.log(form.content)
+    setForm(target.value);
   }
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    console.log(form);
-    fetchNotes()
-    setForm({
-      id: 0,
-      content: ''
-    })
+    console.log(form)
+    const newNote = {
+      'id': 0,
+      'content': `${form}`
+    }
+    console.log(newNote)
+    postNote(newNote);
+    setForm('')
+    getNotes()
   }
 
   return(
     <form className="form" onSubmit={handleSubmit}>
-      <textarea className='textarea' value={form.content} onChange={handleChange}></textarea>
+      <textarea className='textarea' value={form} onChange={handleChange}></textarea>
       <button className="button_save">сохранить</button>
     </form>
   )

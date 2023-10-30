@@ -1,24 +1,11 @@
-import React, {useEffect, useState} from "react";
-import {getNotes} from '../API'
+import React from "react";
+import Note from "./Note";
 
-export const ListNotes = () => {
-  const [notes, setNotes] = useState([]);
-
-  const fetchNotes = () => {
-    fetch(process.env.REACT_APP_SERVER_URL)
-    .then(res => res.json())
-    .then(obj => console.log(obj))
-    .catch(err => console.log(err))
-  }
-
-  useEffect(() => {
-    getNotes()
-  }, []);
-
-  
+export const ListNotes = ({notes}) => {
+  console.log(notes)
   return(
-    <div>
-      
+    <div className="listNotes">
+      {notes.map(item => <Note key={item.id} item={item}></Note>)}
     </div>
   )
 }

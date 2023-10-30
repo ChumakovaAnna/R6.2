@@ -3,7 +3,41 @@
 }
 
 .form {
-  
+  margin-bottom: 20px;
+}
+
+.listNotes {
+  display: flex;
+  align-items: flex-start;
+}
+
+.note {
+  position: relative;
+  display: inline-block;
+  min-width: 50px;
+  max-width: 150px;
+  padding: 10px;
+  margin: 10px;
+
+  border: 1px solid #000;
+}
+
+.delete {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  display: block;
+  padding: 2px;
+
+  font-size: 20px;
+  line-height: 20px;
+  color: #ff0000;
+  font-weight: 700;
+
+  border: 1px solid #ff0000;
+  background: #fff;
+
+  cursor: pointer;
 }
 
 .textarea {
@@ -15,4 +49,5 @@
 
 .button_save {
   display: block;
+  cursor: pointer;
 }
