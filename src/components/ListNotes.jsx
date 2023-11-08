@@ -1,11 +1,10 @@
 import React from "react";
 import Note from "./Note";
 
-export const ListNotes = ({notes}) => {
-  console.log(notes)
+export const ListNotes = ({notes, removeNote}) => {
   return(
     <div className="listNotes">
-      {notes.map(item => <Note key={item.id} item={item}></Note>)}
+      {notes ? notes.map(item => <Note key={item.id} id={item.id} removeNote={removeNote} item={item} ></Note>) : null}
     </div>
   )
 }

@@ -8,6 +8,7 @@
 
 .listNotes {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
 }
 
@@ -50,4 +51,13 @@
 .button_save {
   display: block;
   cursor: pointer;
+}
+
+.error {
+  display: inline-block;
+  padding: 10px;
+
+  border: 1px solid #ff0000;
+
+  color:#ff0000;
 }

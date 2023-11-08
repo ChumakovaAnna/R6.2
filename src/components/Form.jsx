@@ -1,25 +1,30 @@
 import React from "react";
 import { useState } from "react";
 
-export default function Form({getNotes, postNote}) {
+export default function Form({getNotes, postNote, setError}) {
   const [form, setForm] = useState();
 
   const handleChange = ({target}) => {
-    console.log(target.value);
-    setForm(target.value);
+    // console.log(target.value)
+    if(target.value) {
+      setForm(target.value);
+    }
   }
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    console.log(form)
-    const newNote = {
-      'id': 0,
-      'content': `${form}`
+    if (form) {
+
+      const newNote = {
+        id: 0,
+        content: `${form}`
+      }
+      postNote(newNote);
+      getNotes()
+      setForm('')
+    } else {
+      setError("поле не должно быть пустым")
     }
-    console.log(newNote)
-    postNote(newNote);
-    setForm('')
-    getNotes()
   }
 
   return(
